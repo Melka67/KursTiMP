@@ -1,0 +1,30 @@
+2025-12-03 02:12:46 | INFO | Server starting on port 33333
+2025-12-03 02:12:46 | INFO | Database loaded successfully: vcalc.conf
+2025-12-03 02:12:46 | INFO | Server started successfully on port 33333
+2025-12-03 02:12:49 | INFO | New connection from 127.0.0.1
+2025-12-03 02:12:49 | INFO | User authenticated: user
+2025-12-03 02:12:49 | INFO | Authentication successful
+2025-12-03 02:12:49 | INFO | Processing 4 vectors
+2025-12-03 02:12:49 | INFO | Vector 1 processed, result: 24.000000
+2025-12-03 02:12:49 | INFO | Vector 2 processed, result: 115200000000000000000.000000
+2025-12-03 02:12:49 | INFO | Vector 3 processed, result: 124800000000000000000.000000
+2025-12-03 02:12:49 | INFO | Vector 4 processed, result: 1229.844000
+2025-12-03 02:12:49 | INFO | All vectors processed successfully
+2025-12-03 02:12:49 | INFO | Vector processing completed successfully
+2025-12-03 02:12:49 | INFO | Connection closed: 127.0.0.1
+2025-12-03 02:12:53 | CRITICAL | Server stopped by signal
+2025-12-03 02:13:00 | INFO | Server starting on port 33333
+2025-12-03 02:13:00 | INFO | Database loaded successfully: vcalc.conf
+2025-12-03 02:13:00 | INFO | Server started successfully on port 33333
+2025-12-03 02:13:09 | INFO | New connection from 127.0.0.1
+2025-12-03 02:13:09 | INFO | User authenticated: user
+2025-12-03 02:13:09 | INFO | Authentication successful
+2025-12-03 02:13:09 | INFO | Processing 4 vectors
+2025-12-03 02:13:09 | INFO | Vector 1 processed, result: 24.000000
+2025-12-03 02:13:09 | INFO | Vector 2 processed, result: 115200000000000000000.000000
+2025-12-03 02:13:09 | INFO | Vector 3 processed, result: 124800000000000000000.000000
+2025-12-03 02:13:09 | INFO | Vector 4 processed, result: 1229.844000
+2025-12-03 02:13:09 | INFO | All vectors processed successfully
+2025-12-03 02:13:09 | INFO | Vector processing completed successfully
+2025-12-03 02:13:09 | INFO | Connection closed: 127.0.0.1
+2025-12-03 02:13:14 | CRITICAL | Server stopped by signal

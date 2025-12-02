@@ -1,26 +1,23 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2
+CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = -lssl -lcrypto
-
-SRCDIR = src
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
 TARGET = server
+SRC_DIR = src
+SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
+
+all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS) $(LDFLAGS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJECTS) $(TARGET) vcalc.log
 
-install: $(TARGET)
-	sudo mkdir -p /etc /var/log
-	sudo cp $(TARGET) /usr/local/bin/
-	sudo touch /etc/vcalc.conf
-	sudo touch /var/log/vcalc.log
-	sudo chmod 666 /etc/vcalc.conf /var/log/vcalc.log
+run: all
+	./$(TARGET)
 
-.PHONY: clean install
+.PHONY: all clean run
