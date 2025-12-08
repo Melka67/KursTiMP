@@ -40,8 +40,18 @@ int main(int argc, char* argv[]) {
         }
         else if ((arg == "-p" || arg == "--port") && i + 1 < argc) {
             port = std::atoi(argv[++i]);
-            if (port <= 0 || port > 65535) {
-                std::cerr << "Invalid port number: " << port << std::endl;
+            // Проверка корректности порта
+            if (port < 0 || port > 65535) {
+                std::cerr << "Error: Invalid port number: " << port 
+                          << ". Port must be between 0 and 65535." << std::endl;
+                return 1;
+            }
+            
+            // Проверка на привилегированные порты (0-1023)
+            if (port >= 0 && port <= 1023) {
+                std::cerr << "Error: Port " << port << " is a privileged port (0-1023).\n"
+                          << "Privileged ports require root/sudo privileges.\n"
+                          << "Please use a port in range 1024-65535." << std::endl;
                 return 1;
             }
         }
