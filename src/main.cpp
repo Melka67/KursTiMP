@@ -1,11 +1,8 @@
 #include "server.h"
 #include "logger.h"
+#include "args_parser.h"
 #include <iostream>
-#include <string>
-#include <cstdlib>
-#include <cstring>
 #include <csignal>
-#include <filesystem>
 
 Server server;
 
@@ -15,79 +12,39 @@ void signalHandler(int signum) {
     exit(signum);
 }
 
-void printHelp() {
-    std::cout << "Usage: server [options]\n"
-              << "Options:\n"
-              << "  -h, --help            Show this help message\n"
-              << "  -p PORT, --port PORT  Port to listen on (default: 33333)\n"
-              << "  -c FILE, --config FILE Client database file (default: vcalc.conf)\n"
-              << "  -l FILE, --log FILE   Log file (default: vcalc.log)\n";
-}
-
 int main(int argc, char* argv[]) {
-    // Параметры по умолчанию - ЛОКАЛЬНЫЕ файлы
-    int port = 33333;
-    std::string configFile = "vcalc.conf";
-    std::string logFile = "vcalc.log";
-    
-    // Парсим аргументы командной строки
-    for (int i = 1; i < argc; i++) {
-        std::string arg = argv[i];
+    try {
+        ServerConfig config = ArgsParser::parse(argc, argv);
         
-        if (arg == "-h" || arg == "--help") {
-            printHelp();
+        if (config.showHelp) {
+            ArgsParser::printHelp();
             return 0;
         }
-        else if ((arg == "-p" || arg == "--port") && i + 1 < argc) {
-            port = std::atoi(argv[++i]);
-            // Проверка корректности порта
-            if (port < 0 || port > 65535) {
-                std::cerr << "Error: Invalid port number: " << port 
-                          << ". Port must be between 0 and 65535." << std::endl;
-                return 1;
-            }
-            
-            // Проверка на привилегированные порты (0-1023)
-            if (port >= 0 && port <= 1023) {
-                std::cerr << "Error: Port " << port << " is a privileged port (0-1023).\n"
-                          << "Privileged ports require root/sudo privileges.\n"
-                          << "Please use a port in range 1024-65535." << std::endl;
-                return 1;
-            }
-        }
-        else if ((arg == "-c" || arg == "--config") && i + 1 < argc) {
-            configFile = argv[++i];
-        }
-        else if ((arg == "-l" || arg == "--log") && i + 1 < argc) {
-            logFile = argv[++i];
-        }
-        else {
-            std::cerr << "Unknown option: " << arg << std::endl;
-            printHelp();
+        
+        // Инициализируем логгер
+        if (!Logger::getInstance().init(config.logFile)) {
+            std::cerr << "Cannot open log file: " << config.logFile << std::endl;
             return 1;
         }
-    }
-    
-    // Инициализируем логгер
-    if (!Logger::getInstance().init(logFile)) {
-        std::cerr << "Cannot open log file: " << logFile << std::endl;
-        return 1;
-    }
-    
-    // Устанавливаем обработчик Ctrl+C
-    signal(SIGINT, signalHandler);
-    
-    std::cout << "Starting server with parameters:\n"
-              << "  Port: " << port << "\n"
-              << "  Config file: " << configFile 
-              << "\n  Log file: " << logFile << std::endl;
-    
-    Logger::getInstance().log("Server starting on port " + std::to_string(port));
-    
-    // Запускаем сервер
-    if (!server.start(port, configFile)) {
-        Logger::getInstance().log("Failed to start server", true);
-        std::cerr << "Failed to start server" << std::endl;
+        
+        signal(SIGINT, signalHandler);
+        
+        std::cout << "Starting server with parameters:\n"
+                  << "  Port: " << config.port << "\n"
+                  << "  Config file: " << config.configFile 
+                  << "\n  Log file: " << config.logFile << std::endl;
+        
+        Logger::getInstance().log("Server starting on port " + std::to_string(config.port));
+        
+        if (!server.start(config.port, config.configFile)) {
+            Logger::getInstance().log("Failed to start server", true);
+            std::cerr << "Failed to start server" << std::endl;
+            return 1;
+        }
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        ArgsParser::printHelp();
         return 1;
     }
     

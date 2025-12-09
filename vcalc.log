@@ -1,0 +1,19 @@
+2025-12-09 21:02:40 | INFO | Server starting on port 33333
+2025-12-09 21:02:40 | INFO | Database loaded successfully: vcalc.conf
+2025-12-09 21:02:40 | INFO | Server started successfully on port 33333
+2025-12-09 21:02:42 | CRITICAL | Server stopped by signal
+2025-12-09 21:06:48 | INFO | Server starting on port 33333
+2025-12-09 21:06:48 | INFO | Database loaded successfully: vcalc.conf
+2025-12-09 21:06:48 | INFO | Server started successfully on port 33333
+2025-12-09 21:07:00 | INFO | New connection from 127.0.0.1
+2025-12-09 21:07:00 | INFO | User authenticated: user
+2025-12-09 21:07:00 | INFO | Authentication successful
+2025-12-09 21:07:00 | INFO | Processing 4 vectors
+2025-12-09 21:07:00 | INFO | Vector 1 processed, result: 24.000000
+2025-12-09 21:07:01 | INFO | Vector 2 processed, result: 115200000000000000000.000000
+2025-12-09 21:07:01 | INFO | Vector 3 processed, result: 124800000000000000000.000000
+2025-12-09 21:07:01 | INFO | Vector 4 processed, result: 1229.844000
+2025-12-09 21:07:01 | INFO | All vectors processed successfully
+2025-12-09 21:07:01 | INFO | Vector processing completed successfully
+2025-12-09 21:07:01 | INFO | Connection closed: 127.0.0.1
+2025-12-09 21:07:05 | CRITICAL | Server stopped by signal

@@ -1,5 +1,5 @@
 #include <UnitTest++/UnitTest++.h>
-#include "../src/auth.h"  // <-- Добавь эту строку!
+#include "../src/auth.h"
 #include <string>
 
 TEST(Auth_ValidateFormatCorrect) {
