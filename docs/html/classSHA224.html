@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Сервер аутентификации и векторных вычислений: Класс SHA224</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Сервер аутентификации и векторных вычислений<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classSHA224-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс SHA224</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для вычисления SHA-224 хэшей  
+ <a href="classSHA224.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="sha224_8h_source.html">sha224.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a8a5efb7e4c653cea8e1509805f4d086f" id="r_a8a5efb7e4c653cea8e1509805f4d086f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSHA224.html#a8a5efb7e4c653cea8e1509805f4d086f">hash</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:a8a5efb7e4c653cea8e1509805f4d086f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет SHA-224 хэш от данных  <br /></td></tr>
+<tr class="separator:a8a5efb7e4c653cea8e1509805f4d086f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb6948374f0e598978b5fbe6a3b55be" id="r_a2cb6948374f0e598978b5fbe6a3b55be"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSHA224.html#a2cb6948374f0e598978b5fbe6a3b55be">hashWithSalt</a> (const std::string &amp;salt, const std::string &amp;password)</td></tr>
+<tr class="memdesc:a2cb6948374f0e598978b5fbe6a3b55be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет SHA-224 от конкатенации соли и пароля  <br /></td></tr>
+<tr class="separator:a2cb6948374f0e598978b5fbe6a3b55be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc06bd30c77448a4362b16385ebedc2" id="r_a8cc06bd30c77448a4362b16385ebedc2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSHA224.html#a8cc06bd30c77448a4362b16385ebedc2">toHex</a> (const unsigned char *data, size_t length)</td></tr>
+<tr class="memdesc:a8cc06bd30c77448a4362b16385ebedc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конвертирует бинарные данные в hex строку  <br /></td></tr>
+<tr class="separator:a8cc06bd30c77448a4362b16385ebedc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac82769044eb438018e81c0c68261eaf3" id="r_ac82769044eb438018e81c0c68261eaf3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSHA224.html#ac82769044eb438018e81c0c68261eaf3">isValidHex</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:ac82769044eb438018e81c0c68261eaf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, является ли строка корректной hex строкой  <br /></td></tr>
+<tr class="separator:ac82769044eb438018e81c0c68261eaf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для вычисления SHA-224 хэшей </p>
+<p>Предоставляет статические методы для:</p><ul>
+<li>Вычисления хэшей от произвольных данных</li>
+<li>Вычисления хэшей с солью</li>
+<li>Преобразования в hex строки</li>
+<li>Валидации hex строк</li>
+</ul>
+<dl class="section note"><dt>Заметки</dt><dd>Использует OpenSSL EVP API (рекомендовано для OpenSSL 3.0+) </dd></dl>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a8a5efb7e4c653cea8e1509805f4d086f" name="a8a5efb7e4c653cea8e1509805f4d086f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5efb7e4c653cea8e1509805f4d086f">&#9670;&#160;</a></span>hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string SHA224::hash </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет SHA-224 хэш от данных </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Входные данные для хэширования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Hex строка хэша (56 символов)</dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Возвращает пустую строку при ошибке инициализации контекста</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Входные данные для хэширования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Hex строка хэша длиной 56 символов </dd>
+<dd>
+Пустая строка в случае ошибки создания контекста</dd></dl>
+<p>Использует EVP API из OpenSSL, что является рекомендуемым способом в OpenSSL 3.0 и выше. Длина выходного хэша - 28 байт (224 бита), что соответствует 56 hex символам.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Требуется линковка с libcrypto (-lcrypto) </dd></dl>
+
+</div>
+</div>
+<a id="a2cb6948374f0e598978b5fbe6a3b55be" name="a2cb6948374f0e598978b5fbe6a3b55be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb6948374f0e598978b5fbe6a3b55be">&#9670;&#160;</a></span>hashWithSalt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string SHA224::hashWithSalt </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет SHA-224 от конкатенации соли и пароля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salt</td><td>Соль для хэширования </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Hex строка хэша (56 символов)</dd></dl>
+<p>Вычисляет SHA-224(salt || password) Используется для безопасного хранения и проверки паролей</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salt</td><td>Соль для добавления к паролю </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Hex строка хэша</dd></dl>
+<p>Конкатенирует соль и пароль, затем вычисляет хэш. Это защищает от атак с использованием радужных таблиц. </p>
+
+</div>
+</div>
+<a id="ac82769044eb438018e81c0c68261eaf3" name="ac82769044eb438018e81c0c68261eaf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82769044eb438018e81c0c68261eaf3">&#9670;&#160;</a></span>isValidHex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SHA224::isValidHex </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет, является ли строка корректной hex строкой </p>
+<p>Проверяет корректность hex строки</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Строка для проверки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Строка содержит только hex символы (0-9, a-f, A-F) </dd>
+<dd>
+false Строка содержит не-hex символы</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Строка для проверки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Строка содержит только hex символы (0-9, a-f, A-F) </dd>
+<dd>
+false Строка пуста или содержит не-hex символы</dd></dl>
+<p>Использует std::isxdigit для проверки каждого символа. Пустая строка считается некорректной. </p>
+
+</div>
+</div>
+<a id="a8cc06bd30c77448a4362b16385ebedc2" name="a8cc06bd30c77448a4362b16385ebedc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc06bd30c77448a4362b16385ebedc2">&#9670;&#160;</a></span>toHex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string SHA224::toHex </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конвертирует бинарные данные в hex строку </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Указатель на бинарные данные </td></tr>
+    <tr><td class="paramname">length</td><td>Длина данных в байтах </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Hex представление данных</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Каждый байт представляется двумя hex символами </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/<a class="el" href="sha224_8h_source.html">sha224.h</a></li>
+<li>src/<a class="el" href="sha224_8cpp.html">sha224.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

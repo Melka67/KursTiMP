@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Сервер аутентификации и векторных вычислений: Класс Database</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Сервер аутентификации и векторных вычислений<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classDatabase-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Database</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для работы с базой данных пользователей  
+ <a href="classDatabase.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="database_8h_source.html">database.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:ab3e4d4a5f3c122898e2828fc23b5fa41" id="r_ab3e4d4a5f3c122898e2828fc23b5fa41"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#ab3e4d4a5f3c122898e2828fc23b5fa41">load</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:ab3e4d4a5f3c122898e2828fc23b5fa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает базу пользователей из файла  <br /></td></tr>
+<tr class="separator:ab3e4d4a5f3c122898e2828fc23b5fa41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c7f21d4fdb57f54442073e6c63dca39" id="r_a1c7f21d4fdb57f54442073e6c63dca39"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a1c7f21d4fdb57f54442073e6c63dca39">getPassword</a> (const std::string &amp;login)</td></tr>
+<tr class="memdesc:a1c7f21d4fdb57f54442073e6c63dca39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает пароль пользователя по логину  <br /></td></tr>
+<tr class="separator:a1c7f21d4fdb57f54442073e6c63dca39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1f708b6f047693b4f86d8459ae6027" id="r_a4e1f708b6f047693b4f86d8459ae6027"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a4e1f708b6f047693b4f86d8459ae6027">checkUser</a> (const std::string &amp;login, const std::string &amp;salt, const std::string &amp;hash)</td></tr>
+<tr class="memdesc:a4e1f708b6f047693b4f86d8459ae6027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет учетные данные пользователя  <br /></td></tr>
+<tr class="separator:a4e1f708b6f047693b4f86d8459ae6027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для работы с базой данных пользователей </p>
+<p>Хранит логины и пароли пользователей в памяти. Обеспечивает загрузку из файла и проверку учетных данных.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Все методы класса статические - используется как синглтон </dd></dl>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a4e1f708b6f047693b4f86d8459ae6027" name="a4e1f708b6f047693b4f86d8459ae6027"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1f708b6f047693b4f86d8459ae6027">&#9670;&#160;</a></span>checkUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::checkUser </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>hash</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет учетные данные пользователя </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль для хэширования </td></tr>
+    <tr><td class="paramname">hash</td><td>Предоставленный хэш пароля </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Учетные данные верны </dd>
+<dd>
+false Неверный логин или пароль</dd></dl>
+<p>Сравнивает SHA-224(salt + password) с предоставленным хэшем Сравнение регистронезависимое для hex-строк</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль для хэширования (16 hex символов) </td></tr>
+    <tr><td class="paramname">hash</td><td>Хэш для проверки (56 hex символов) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Хэш совпадает с ожидаемым </dd>
+<dd>
+false Логин не найден или хэш не совпадает</dd></dl>
+<p>Алгоритм проверки:</p><ol type="1">
+<li>Получение пароля из базы</li>
+<li>Вычисление SHA-224(salt + password)</li>
+<li>Сравнение с предоставленным хэшем (регистронезависимо)</li>
+</ol>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="classSHA224.html#a2cb6948374f0e598978b5fbe6a3b55be" title="Вычисляет SHA-224 от конкатенации соли и пароля">SHA224::hashWithSalt</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1c7f21d4fdb57f54442073e6c63dca39" name="a1c7f21d4fdb57f54442073e6c63dca39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c7f21d4fdb57f54442073e6c63dca39">&#9670;&#160;</a></span>getPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Database::getPassword </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Получает пароль пользователя по логину </p>
+<p>Получает пароль пользователя</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Пароль пользователя или пустая строка если не найден</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя для поиска </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Пароль или пустая строка если пользователь не найден</dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Возвращаемая строка может быть пустой если пользователь не существует </dd></dl>
+
+</div>
+</div>
+<a id="ab3e4d4a5f3c122898e2828fc23b5fa41" name="ab3e4d4a5f3c122898e2828fc23b5fa41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e4d4a5f3c122898e2828fc23b5fa41">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::load </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Загружает базу пользователей из файла </p>
+<p>Загружает пользователей из текстового файла</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Путь к файлу конфигурации </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Файл успешно загружен </dd>
+<dd>
+false Ошибка загрузки файла</dd></dl>
+<p>Формат файла:</p><ul>
+<li>Каждая строка: логин:пароль</li>
+<li>Пробелы вокруг разделителя игнорируются</li>
+<li>Строки, начинающиеся с #, игнорируются</li>
+<li>Пустые строки игнорируются</li>
+</ul>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Путь к файлу конфигурации </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true Файл успешно загружен </dd>
+<dd>
+false Ошибка открытия или чтения файла</dd></dl>
+<p>Пример содержимого файла: </p><div class="fragment"><div class="line">user1:password1</div>
+<div class="line">user2:password2</div>
+<div class="line"><span class="preprocessor"># комментарий</span></div>
+<div class="line">user3:password3</div>
+</div><!-- fragment --><dl class="section note"><dt>Заметки</dt><dd>Тримит пробелы и табуляции вокруг логина и пароля </dd>
+<dd>
+Очищает предыдущие данные перед загрузкой </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>src/<a class="el" href="database_8h_source.html">database.h</a></li>
+<li>src/<a class="el" href="database_8cpp.html">database.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

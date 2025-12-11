@@ -1,0 +1,146 @@
+\doxysection{Класс Logger}
+\hypertarget{classLogger}{}\label{classLogger}\index{Logger@{Logger}}
+
+
+Класс логгера (синглтон) для записи событий сервера  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classLogger_ad09ebceb00557a103de141e3ce19cbf9}{init}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Инициализирует логгер с указанным файлом \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_aeaa8867388875e6a1fc4383af6c5f925}{log}} (const std\+::string \&message, bool is\+Critical=false)
+\begin{DoxyCompactList}\small\item\em Записывает сообщение в лог \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_afee2bab560c2db0190c980884d33868c}{close}} ()
+\begin{DoxyCompactList}\small\item\em Закрывает файл логов \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLogger}{Logger}} \& \mbox{\hyperlink{classLogger_acebb37f5538780e6c14f13de6ec497bc}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает единственный экземпляр логгера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс логгера (синглтон) для записи событий сервера 
+
+Обеспечивает потокобезопасное логирование в файл с метками времени. Реализован как синглтон -\/ только один экземпляр на программу.
+
+\begin{DoxyNote}{Заметки}
+Для использования вызовите \doxylink{classLogger_acebb37f5538780e6c14f13de6ec497bc}{Logger\+::get\+Instance()} 
+\end{DoxyNote}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classLogger_afee2bab560c2db0190c980884d33868c}\label{classLogger_afee2bab560c2db0190c980884d33868c} 
+\index{Logger@{Logger}!close@{close}}
+\index{close@{close}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void Logger\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Закрывает файл логов 
+
+Вызывается автоматически в деструкторе
+
+Вызывается при завершении работы программы или при повторной инициализации логгера. \Hypertarget{classLogger_acebb37f5538780e6c14f13de6ec497bc}\label{classLogger_acebb37f5538780e6c14f13de6ec497bc} 
+\index{Logger@{Logger}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} \& Logger\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Возвращает единственный экземпляр логгера 
+
+\begin{DoxyReturn}{Возвращает}
+\doxylink{classLogger}{Logger}\& Ссылка на экземпляр логгера
+\end{DoxyReturn}
+Реализовано через статическую локальную переменную (Meyer\textquotesingle{}s singleton), что обеспечивает потокобезопасность в C++11+
+
+\begin{DoxyReturn}{Возвращает}
+\doxylink{classLogger}{Logger}\& Ссылка на статический экземпляр
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Использует идиому "{}\+Meyer\textquotesingle{}s singleton"{} Потокобезопасна в стандарте C++11 и выше 
+\end{DoxyNote}
+\Hypertarget{classLogger_ad09ebceb00557a103de141e3ce19cbf9}\label{classLogger_ad09ebceb00557a103de141e3ce19cbf9} 
+\index{Logger@{Logger}!init@{init}}
+\index{init@{init}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Logger\+::init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Инициализирует логгер с указанным файлом 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу логов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Файл успешно открыт 
+
+false Ошибка открытия файла
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Открывает файл в режиме добавления (append) 
+
+Если файл не открывается, логи выводятся в консоль
+\end{DoxyNote}
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу для записи логов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Файл успешно открыт 
+
+false Не удалось открыть файл
+\end{DoxyReturn}
+Открывает файл в режиме std\+::ios\+::app (добавление в конец). Если файл не открывается, логи будут выводиться в std\+::cout. \Hypertarget{classLogger_aeaa8867388875e6a1fc4383af6c5f925}\label{classLogger_aeaa8867388875e6a1fc4383af6c5f925} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{bool}]{is\+Critical = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Записывает сообщение в лог 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Текст сообщения \\
+\hline
+{\em is\+Critical} & Флаг критичности сообщения\\
+\hline
+\end{DoxyParams}
+Формат записи\+: "{}ВРЕМЯ \texorpdfstring{$\vert$}{|} УРОВЕНЬ \texorpdfstring{$\vert$}{|} СООБЩЕНИЕ"{} Уровень\+: INFO или CRITICAL в зависимости от is\+Critical
+
+
+\begin{DoxyParams}{Аргументы}
+{\em message} & Текст сообщения для записи \\
+\hline
+{\em is\+Critical} & Флаг, указывающий на критичность сообщения\\
+\hline
+\end{DoxyParams}
+Формат записи\+: \mbox{[}YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS \texorpdfstring{$\vert$}{|} LEVEL \texorpdfstring{$\vert$}{|} message\mbox{]}
+
+Уровни\+:
+\begin{DoxyItemize}
+\item INFO (is\+Critical = false)
+\item CRITICAL (is\+Critical = true)
+\end{DoxyItemize}
+
+Если файл не открыт, выводит в консоль с префиксом \mbox{[}LOG\mbox{]} 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{logger_8h}{logger.\+h}}\item 
+src/\mbox{\hyperlink{logger_8cpp}{logger.\+cpp}}\end{DoxyCompactItemize}

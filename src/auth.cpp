@@ -1,3 +1,10 @@
+/**
+ * @file auth.cpp
+ * @brief Реализация класса аутентификации
+ * @author Мелькаев Евгений
+ * @date 2025
+ */
+
 #include "auth.h"
 #include "database.h"
 #include "sha224.h"
@@ -8,6 +15,23 @@
 #include <unistd.h>
 #include <sys/socket.h>  
 
+/**
+ * @brief Выполняет полный процесс аутентификации клиента
+ * 
+ * @param clientSocket Дескриптор сокета подключенного клиента
+ * @return true Клиент успешно аутентифицирован
+ * @return false Ошибка аутентификации
+ * 
+ * @details Процесс аутентификации:
+ * 1. Получение данных от клиента (76 байт)
+ * 2. Разбор на компоненты: логин, соль, хэш
+ * 3. Валидация формата
+ * 4. Проверка учетных данных
+ * 5. Отправка результата клиенту
+ * 
+ * @note Формат сообщения: LOGIN(4) + SALT(16 hex) + HASH(56 hex)
+ * @note При ошибке отправляет "ERR", при успехе - "OK"
+ */
 bool Auth::authenticate(int clientSocket) {
     char buffer[256];
     memset(buffer, 0, sizeof(buffer));
@@ -47,6 +71,17 @@ bool Auth::authenticate(int clientSocket) {
     return true;
 }
 
+/**
+ * @brief Проверяет корректность формата аутентификационных данных
+ * 
+ * @param login Логин пользователя (должен быть "user")
+ * @param salt Соль в hex формате
+ * @param hash Хэш в hex формате
+ * @return true Все параметры корректны
+ * @return false Обнаружена ошибка в формате
+ * 
+ * @see SHA224::isValidHex
+ */
 bool Auth::validateFormat(const std::string& login, 
                          const std::string& salt, 
                          const std::string& hash) {
@@ -83,6 +118,18 @@ bool Auth::validateFormat(const std::string& login,
     return true;
 }
 
+/**
+ * @brief Проверяет соответствие учетных данных
+ * 
+ * @param login Логин пользователя
+ * @param salt Соль использованная клиентом
+ * @param receivedHash Хэш от клиента
+ * @return true Хэши совпадают
+ * @return false Хэши не совпадают или пользователь не найден
+ * 
+ * @details Получает пароль из базы, вычисляет SHA-224(salt + password)
+ * и сравнивает с полученным хэшем (регистронезависимо).
+ */
 bool Auth::verifyCredentials(const std::string& login,
                             const std::string& salt,
                             const std::string& receivedHash) {

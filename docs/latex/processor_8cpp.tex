@@ -1,0 +1,46 @@
+\doxysection{Файл src/processor.cpp}
+\hypertarget{processor_8cpp}{}\label{processor_8cpp}\index{src/processor.cpp@{src/processor.cpp}}
+
+
+Реализация обработки векторных данных  
+
+
+{\ttfamily \#include "{}processor.\+h"{}}\newline
+{\ttfamily \#include "{}logger.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$cfloat$>$}\newline
+Граф включаемых заголовочных файлов для processor.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{processor_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{processor_8cpp_adb912dd670a55e7c5cee0826c15926a2}\label{processor_8cpp_adb912dd670a55e7c5cee0826c15926a2} 
+const double {\bfseries OVERFLOW\+\_\+\+UP} = 9223372036854775807.\+0
+\begin{DoxyCompactList}\small\item\em 2\texorpdfstring{$^\wedge$}{\string^}63 -\/ 1 (максимальное значение при переполнении) \end{DoxyCompactList}\item 
+\Hypertarget{processor_8cpp_a937e84b7c084a1118058fec22e6d78b4}\label{processor_8cpp_a937e84b7c084a1118058fec22e6d78b4} 
+const double {\bfseries OVERFLOW\+\_\+\+DOWN} = -\/9223372036854775808.\+0
+\begin{DoxyCompactList}\small\item\em -\/2\texorpdfstring{$^\wedge$}{\string^}63 (минимальное значение при переполнении) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Реализация обработки векторных данных 
+
+\begin{DoxyAuthor}{Автор}
+Мелькаев Евгений 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Дата}
+2025 
+\end{DoxyDate}

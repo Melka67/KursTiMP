@@ -1,0 +1,175 @@
+\doxysection{Класс Database}
+\hypertarget{classDatabase}{}\label{classDatabase}\index{Database@{Database}}
+
+
+Класс для работы с базой данных пользователей  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classDatabase_ab3e4d4a5f3c122898e2828fc23b5fa41}{load}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Загружает базу пользователей из файла \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classDatabase_a1c7f21d4fdb57f54442073e6c63dca39}{get\+Password}} (const std\+::string \&login)
+\begin{DoxyCompactList}\small\item\em Получает пароль пользователя по логину \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classDatabase_a4e1f708b6f047693b4f86d8459ae6027}{check\+User}} (const std\+::string \&login, const std\+::string \&salt, const std\+::string \&hash)
+\begin{DoxyCompactList}\small\item\em Проверяет учетные данные пользователя \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для работы с базой данных пользователей 
+
+Хранит логины и пароли пользователей в памяти. Обеспечивает загрузку из файла и проверку учетных данных.
+
+\begin{DoxyNote}{Заметки}
+Все методы класса статические -\/ используется как синглтон 
+\end{DoxyNote}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classDatabase_a4e1f708b6f047693b4f86d8459ae6027}\label{classDatabase_a4e1f708b6f047693b4f86d8459ae6027} 
+\index{Database@{Database}!checkUser@{checkUser}}
+\index{checkUser@{checkUser}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{checkUser()}{checkUser()}}
+{\footnotesize\ttfamily bool Database\+::check\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{const std\+::string \&}]{salt,  }\item[{const std\+::string \&}]{hash }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Проверяет учетные данные пользователя 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя \\
+\hline
+{\em salt} & Соль для хэширования \\
+\hline
+{\em hash} & Предоставленный хэш пароля \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Учетные данные верны 
+
+false Неверный логин или пароль
+\end{DoxyReturn}
+Сравнивает SHA-\/224(salt + password) с предоставленным хэшем Сравнение регистронезависимое для hex-\/строк
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя \\
+\hline
+{\em salt} & Соль для хэширования (16 hex символов) \\
+\hline
+{\em hash} & Хэш для проверки (56 hex символов) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Хэш совпадает с ожидаемым 
+
+false Логин не найден или хэш не совпадает
+\end{DoxyReturn}
+Алгоритм проверки\+:
+\begin{DoxyEnumerate}
+\item Получение пароля из базы
+\item Вычисление SHA-\/224(salt + password)
+\item Сравнение с предоставленным хэшем (регистронезависимо)
+\end{DoxyEnumerate}
+
+\begin{DoxySeeAlso}{См. также}
+\doxylink{classSHA224_a2cb6948374f0e598978b5fbe6a3b55be}{SHA224\+::hash\+With\+Salt} 
+\end{DoxySeeAlso}
+\Hypertarget{classDatabase_a1c7f21d4fdb57f54442073e6c63dca39}\label{classDatabase_a1c7f21d4fdb57f54442073e6c63dca39} 
+\index{Database@{Database}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily std\+::string Database\+::get\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Получает пароль пользователя по логину 
+
+Получает пароль пользователя
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Пароль пользователя или пустая строка если не найден
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя для поиска \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Пароль или пустая строка если пользователь не найден
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Возвращаемая строка может быть пустой если пользователь не существует 
+\end{DoxyWarning}
+\Hypertarget{classDatabase_ab3e4d4a5f3c122898e2828fc23b5fa41}\label{classDatabase_ab3e4d4a5f3c122898e2828fc23b5fa41} 
+\index{Database@{Database}!load@{load}}
+\index{load@{load}!Database@{Database}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool Database\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Загружает базу пользователей из файла 
+
+Загружает пользователей из текстового файла
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу конфигурации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Файл успешно загружен 
+
+false Ошибка загрузки файла
+\end{DoxyReturn}
+Формат файла\+:
+\begin{DoxyItemize}
+\item Каждая строка\+: логин\+:пароль
+\item Пробелы вокруг разделителя игнорируются
+\item Строки, начинающиеся с \#, игнорируются
+\item Пустые строки игнорируются
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу конфигурации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Файл успешно загружен 
+
+false Ошибка открытия или чтения файла
+\end{DoxyReturn}
+Пример содержимого файла\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{user1:password1}
+\DoxyCodeLine{user2:password2}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ комментарий}}
+\DoxyCodeLine{user3:password3}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Заметки}
+Тримит пробелы и табуляции вокруг логина и пароля 
+
+Очищает предыдущие данные перед загрузкой 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{database_8h}{database.\+h}}\item 
+src/\mbox{\hyperlink{database_8cpp}{database.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+\doxysection{sha224.\+h}
+\hypertarget{sha224_8h_source}{}\label{sha224_8h_source}\index{src/sha224.h@{src/sha224.h}}
+\mbox{\hyperlink{sha224_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ SHA224\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ SHA224\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSHA224}{SHA224}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classSHA224_a8a5efb7e4c653cea8e1509805f4d086f}{hash}}(\textcolor{keyword}{const}\ std::string\&\ data);}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classSHA224_a2cb6948374f0e598978b5fbe6a3b55be}{hashWithSalt}}(\textcolor{keyword}{const}\ std::string\&\ salt,\ \textcolor{keyword}{const}\ std::string\&\ password);}
+\DoxyCodeLine{00046\ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classSHA224_a8cc06bd30c77448a4362b16385ebedc2}{toHex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ data,\ \textcolor{keywordtype}{size\_t}\ length);}
+\DoxyCodeLine{00056\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSHA224_ac82769044eb438018e81c0c68261eaf3}{isValidHex}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

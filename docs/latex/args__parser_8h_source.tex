@@ -1,0 +1,29 @@
+\doxysection{args\+\_\+parser.\+h}
+\hypertarget{args__parser_8h_source}{}\label{args__parser_8h_source}\index{src/args\_parser.h@{src/args\_parser.h}}
+\mbox{\hyperlink{args__parser_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ ARGS\_PARSER\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ARGS\_PARSER\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structServerConfig}{ServerConfig}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structServerConfig_ae459946703124ef5a1d98dba38a8b493}{port}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \mbox{\hyperlink{structServerConfig_a41d2f81fb16614876719e414b5c12348}{configFile}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{structServerConfig_a2824fefce2ee247cee3aec8f953b3023}{logFile}};\ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structServerConfig_a3113a448e038df6eea7189eeb3c1fb46}{showHelp}};\ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classArgsParser}{ArgsParser}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structServerConfig}{ServerConfig}}\ \mbox{\hyperlink{classArgsParser_a9cce24d0921b433bdb11680df58219c3}{parse}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[]);}
+\DoxyCodeLine{00047\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classArgsParser_a4775f2f5b48fac8f921bb10e261b43ae}{printHelp}}();}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classArgsParser_a1c0bf01a890cf971367fb809c5746e4d}{validatePort}}(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

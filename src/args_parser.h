@@ -1,19 +1,63 @@
+/**
+ * @file args_parser.h
+ * @brief Заголовочный файл для парсера аргументов командной строки
+ * @author Мелькаев Евгений
+ * @date 2025
+ */
+
 #ifndef ARGS_PARSER_H
 #define ARGS_PARSER_H
 
 #include <string>
 
+/**
+ * @brief Структура конфигурации сервера
+ * 
+ * Содержит параметры, полученные из аргументов командной строки.
+ */
 struct ServerConfig {
-    int port;
-    std::string configFile;
-    std::string logFile;
-    bool showHelp;
+    int port;           ///< Порт для прослушивания (1024-65535)
+    std::string configFile; ///< Файл конфигурации с логинами/паролями
+    std::string logFile;    ///< Файл для записи логов
+    bool showHelp;      ///< Флаг показа справки
 };
 
+/**
+ * @brief Класс для разбора аргументов командной строки
+ * 
+ * Реализует парсинг параметров запуска сервера и их валидацию.
+ * Поддерживает короткие (-p) и длинные (--port) формы аргументов.
+ */
 class ArgsParser {
 public:
+    /**
+     * @brief Разбирает аргументы командной строки
+     * @param argc Количество аргументов
+     * @param argv Массив аргументов
+     * @return ServerConfig Структура с параметрами сервера
+     * @exception std::invalid_argument При неверных аргументах
+     * 
+     * Поддерживаемые аргументы:
+     * - -h, --help      - показать справку
+     * - -p, --port PORT - установить порт (1024-65535)
+     * - -c, --config FILE - файл конфигурации
+     * - -l, --log FILE - файл логов
+     */
     static ServerConfig parse(int argc, char* argv[]);
+    
+    /**
+     * @brief Выводит справку по использованию программы
+     */
     static void printHelp();
+    
+    /**
+     * @brief Проверяет корректность номера порта
+     * @param port Номер порта для проверки
+     * @return true если порт корректен, false в противном случае
+     * 
+     * Порт должен быть в диапазоне 1024-65535.
+     * Порты 0-1023 зарезервированы системой.
+     */
     static bool validatePort(int port);
 };
 

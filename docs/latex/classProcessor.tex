@@ -1,0 +1,89 @@
+\doxysection{Класс Processor}
+\hypertarget{classProcessor}{}\label{classProcessor}\index{Processor@{Processor}}
+
+
+Класс для обработки векторных данных от клиентов  
+
+
+
+
+{\ttfamily \#include $<$processor.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classProcessor_a3b10038acb9b5d448192139dd2c82910}{process\+Vectors}} (int client\+Socket)
+\begin{DoxyCompactList}\small\item\em Обрабатывает векторные данные от клиента \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки векторных данных от клиентов 
+
+Вычисляет произведение элементов векторов с обработкой переполнения. Работает с данными, полученными по сети от аутентифицированных клиентов. 
+
+\doxysubsection{Методы}
+\Hypertarget{classProcessor_a3b10038acb9b5d448192139dd2c82910}\label{classProcessor_a3b10038acb9b5d448192139dd2c82910} 
+\index{Processor@{Processor}!processVectors@{processVectors}}
+\index{processVectors@{processVectors}!Processor@{Processor}}
+\doxysubsubsection{\texorpdfstring{processVectors()}{processVectors()}}
+{\footnotesize\ttfamily bool Processor\+::process\+Vectors (\begin{DoxyParamCaption}\item[{int}]{client\+Socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Обрабатывает векторные данные от клиента 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+Socket} & Дескриптор сокета клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Обработка завершена успешно 
+
+false Ошибка при обработке
+\end{DoxyReturn}
+Протокол обмена\+:
+\begin{DoxyEnumerate}
+\item Получает количество векторов (uint32\+\_\+t)
+\item Для каждого вектора\+:
+\begin{DoxyItemize}
+\item Получает размер (uint32\+\_\+t)
+\item Получает данные вектора (double\mbox{[}\mbox{]})
+\item Вычисляет произведение элементов
+\item Отправляет результат обратно
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+Socket} & Дескриптор сокета подключенного клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Все векторы успешно обработаны 
+
+false Ошибка при чтении/записи данных
+\end{DoxyReturn}
+Алгоритм обработки\+:
+\begin{DoxyEnumerate}
+\item Чтение количества векторов (uint32\+\_\+t)
+\item Для каждого вектора в цикле\+:
+\begin{DoxyItemize}
+\item Чтение размера вектора (uint32\+\_\+t)
+\item Чтение данных вектора (массив double)
+\item Вычисление произведения элементов
+\item Отправка результата клиенту
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Использует MSG\+\_\+\+WAITALL для гарантированного чтения всего блока данных 
+
+Все данные передаются в сетевом порядке байт 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{processor_8h}{processor.\+h}}\item 
+src/\mbox{\hyperlink{processor_8cpp}{processor.\+cpp}}\end{DoxyCompactItemize}

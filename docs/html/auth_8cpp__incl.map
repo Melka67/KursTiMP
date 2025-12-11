@@ -1,0 +1,31 @@
+<map id="src/auth.cpp" name="src/auth.cpp">
+<area shape="rect" id="Node000001" title="Реализация класса аутентификации" alt="" coords="370,5,471,31"/>
+<area shape="rect" id="Node000002" href="$auth_8h.html" title="Заголовочный файл класса аутентификации" alt="" coords="139,79,201,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,33,215,80,214,75,380,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="206,152,265,177"/>
+<area shape="poly" id="edge14_Node000001_Node000003" title=" " alt="" coords="371,30,317,48,291,62,268,80,250,109,241,139,236,138,245,107,264,77,288,58,315,43,369,25"/>
+<area shape="rect" id="Node000004" href="$database_8h.html" title="Заголовочный файл класса базы данных пользователей" alt="" coords="20,79,115,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="370,32,129,80,128,75,369,27"/>
+<area shape="rect" id="Node000006" href="$sha224_8h.html" title="Заголовочный файл для работы с SHA&#45;224 хэшированием" alt="" coords="277,79,359,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="406,33,348,73,345,68,403,28"/>
+<area shape="rect" id="Node000008" href="$logger_8h.html" title="Заголовочный файл класса логгера" alt="" coords="383,79,458,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="423,31,423,65,418,65,418,31"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="482,79,562,104"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="438,28,496,68,493,73,435,33"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="586,79,653,104"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="453,28,575,71,573,76,452,33"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="677,79,751,104"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="468,28,664,75,662,80,467,33"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="776,79,879,104"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="472,25,763,76,762,81,471,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,103,217,140,214,144,179,106"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="95,102,196,144,194,149,93,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,152,129,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="70,104,70,138,65,138,65,104"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="306,106,261,145,258,141,303,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="289,152,352,177"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="321,104,322,138,317,139,316,104"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="392,107,279,150,277,145,390,102"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="384,152,457,177"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="423,104,423,138,418,138,418,104"/>
+</map>

@@ -1,0 +1,26 @@
+\doxysection{processor.\+h}
+\hypertarget{processor_8h_source}{}\label{processor_8h_source}\index{src/processor.h@{src/processor.h}}
+\mbox{\hyperlink{processor_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ PROCESSOR\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ PROCESSOR\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classProcessor}{Processor}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessor_a3b10038acb9b5d448192139dd2c82910}{processVectors}}(\textcolor{keywordtype}{int}\ clientSocket);}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Делаем\ методы\ публичными\ для\ тестов}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifdef\ UNIT\_TESTS}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ calculateProduct(\textcolor{keyword}{const}\ std::vector<double>\&\ vector);}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

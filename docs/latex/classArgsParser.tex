@@ -1,0 +1,132 @@
+\doxysection{Класс Args\+Parser}
+\hypertarget{classArgsParser}{}\label{classArgsParser}\index{ArgsParser@{ArgsParser}}
+
+
+Класс для разбора аргументов командной строки  
+
+
+
+
+{\ttfamily \#include $<$args\+\_\+parser.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structServerConfig}{Server\+Config}} \mbox{\hyperlink{classArgsParser_a9cce24d0921b433bdb11680df58219c3}{parse}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Разбирает аргументы командной строки \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classArgsParser_a4775f2f5b48fac8f921bb10e261b43ae}{print\+Help}} ()
+\begin{DoxyCompactList}\small\item\em Выводит справку по использованию программы \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classArgsParser_a1c0bf01a890cf971367fb809c5746e4d}{validate\+Port}} (int port)
+\begin{DoxyCompactList}\small\item\em Проверяет корректность номера порта \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для разбора аргументов командной строки 
+
+Реализует парсинг параметров запуска сервера и их валидацию. Поддерживает короткие (-\/p) и длинные (--port) формы аргументов. 
+
+\doxysubsection{Методы}
+\Hypertarget{classArgsParser_a9cce24d0921b433bdb11680df58219c3}\label{classArgsParser_a9cce24d0921b433bdb11680df58219c3} 
+\index{ArgsParser@{ArgsParser}!parse@{parse}}
+\index{parse@{parse}!ArgsParser@{ArgsParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structServerConfig}{Server\+Config}} Args\+Parser\+::parse (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Разбирает аргументы командной строки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов \\
+\hline
+{\em argv} & Массив аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{structServerConfig}{Server\+Config} Структура с параметрами сервера 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & При неверных аргументах\\
+\hline
+\end{DoxyExceptions}
+Поддерживаемые аргументы\+:
+\begin{DoxyItemize}
+\item -\/h, --help -\/ показать справку
+\item -\/p, --port PORT -\/ установить порт (1024-\/65535)
+\item -\/c, --config FILE -\/ файл конфигурации
+\item -\/l, --log FILE -\/ файл логов
+
+Проходит по всем аргументам, распознает опции и их значения. Устанавливает значения по умолчанию если опции не указаны.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов \\
+\hline
+{\em argv} & Массив аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{structServerConfig}{Server\+Config} Конфигурация сервера 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::invalid\+\_\+argument} & при неизвестной опции или неверном порте\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{См. также}
+\doxylink{structServerConfig}{Server\+Config} 
+
+\doxylink{classArgsParser_a1c0bf01a890cf971367fb809c5746e4d}{validate\+Port} 
+\end{DoxySeeAlso}
+\Hypertarget{classArgsParser_a4775f2f5b48fac8f921bb10e261b43ae}\label{classArgsParser_a4775f2f5b48fac8f921bb10e261b43ae} 
+\index{ArgsParser@{ArgsParser}!printHelp@{printHelp}}
+\index{printHelp@{printHelp}!ArgsParser@{ArgsParser}}
+\doxysubsubsection{\texorpdfstring{printHelp()}{printHelp()}}
+{\footnotesize\ttfamily void Args\+Parser\+::print\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выводит справку по использованию программы 
+
+Форматированный вывод доступных опций и их описания. Вызывается при указании -\/h или --help, или при ошибке парсинга. \Hypertarget{classArgsParser_a1c0bf01a890cf971367fb809c5746e4d}\label{classArgsParser_a1c0bf01a890cf971367fb809c5746e4d} 
+\index{ArgsParser@{ArgsParser}!validatePort@{validatePort}}
+\index{validatePort@{validatePort}!ArgsParser@{ArgsParser}}
+\doxysubsubsection{\texorpdfstring{validatePort()}{validatePort()}}
+{\footnotesize\ttfamily bool Args\+Parser\+::validate\+Port (\begin{DoxyParamCaption}\item[{int}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Проверяет корректность номера порта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em port} & Номер порта для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если порт корректен, false в противном случае
+\end{DoxyReturn}
+Порт должен быть в диапазоне 1024-\/65535. Порты 0-\/1023 зарезервированы системой.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em port} & Номер порта для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если порт в допустимом диапазоне 
+
+false если порт зарезервирован или вне диапазона
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Системные порты (0-\/1023) требуют прав администратора 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{args__parser_8h}{args\+\_\+parser.\+h}}\item 
+src/\mbox{\hyperlink{args__parser_8cpp}{args\+\_\+parser.\+cpp}}\end{DoxyCompactItemize}

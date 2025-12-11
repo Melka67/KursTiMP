@@ -1,0 +1,33 @@
+\doxysection{logger.\+h}
+\hypertarget{logger_8h_source}{}\label{logger_8h_source}\index{src/logger.h@{src/logger.h}}
+\mbox{\hyperlink{logger_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LOGGER\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LOGGER\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogger}{Logger}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}\&\ \mbox{\hyperlink{classLogger_acebb37f5538780e6c14f13de6ec497bc}{getInstance}}();}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_ad09ebceb00557a103de141e3ce19cbf9}{init}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_aeaa8867388875e6a1fc4383af6c5f925}{log}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keywordtype}{bool}\ isCritical\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00053\ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_afee2bab560c2db0190c980884d33868c}{close}}();}
+\DoxyCodeLine{00060\ \ \ \ \ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}()\ =\ \textcolor{keywordflow}{default};\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classLogger}{\string~Logger}}();\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\&)\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\&)\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ std::ofstream\ logFile;\ }
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

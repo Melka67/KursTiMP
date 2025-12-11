@@ -1,0 +1,9 @@
+<map id="src/sha224.h" name="src/sha224.h">
+<area shape="rect" id="Node000001" title="Заголовочный файл для работы с SHA&#45;224 хэшированием" alt="" coords="145,5,249,31"/>
+<area shape="rect" id="Node000002" href="$auth_8cpp.html" title="Реализация класса аутентификации" alt="" coords="5,79,107,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,39,80,81,78,76,161,34"/>
+<area shape="rect" id="Node000003" href="$database_8cpp.html" title="Реализация класса базы данных пользователей" alt="" coords="131,79,263,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,44,200,79,195,79,195,44"/>
+<area shape="rect" id="Node000004" href="$sha224_8cpp.html" title="Реализация SHA&#45;224 хэширования" alt="" coords="287,79,406,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="235,34,323,76,321,81,232,39"/>
+</map>

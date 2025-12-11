@@ -1,0 +1,3 @@
+2025-12-12 02:09:31 | INFO | Server starting on port 9999
+2025-12-12 02:09:31 | CRITICAL | Failed to load database: prod.conf
+2025-12-12 02:09:31 | CRITICAL | Failed to start server

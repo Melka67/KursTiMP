@@ -1,3 +1,10 @@
+/**
+ * @file server.cpp
+ * @brief Реализация класса сервера
+ * @author Мелькаев Евгений
+ * @date 2025
+ */
+
 #include "server.h"
 #include "auth.h"
 #include "database.h"
@@ -12,6 +19,27 @@
 #include <arpa/inet.h>
 #include <errno.h>
 
+/**
+ * @brief Запускает сервер и начинает прослушивание порта
+ * 
+ * @param port Порт для прослушивания
+ * @param configFile Путь к файлу с базой пользователей
+ * @return true Сервер успешно запущен
+ * @return false Ошибка при запуске сервера
+ * 
+ * @details Метод выполняет полную инициализацию сервера:
+ * 1. Загружает базу данных пользователей
+ * 2. Создает сокет сервера
+ * 3. Настраивает и привязывает сокет
+ * 4. Начинает прослушивание порта
+ * 5. Входит в бесконечный цикл обработки клиентов
+ * 
+ * @note Использует TCP сокеты с адресом INADDR_ANY (все интерфейсы)
+ * @note Включает опцию SO_REUSEADDR для быстрого перезапуска
+ * 
+ * @see Database::load
+ * @see handleClient
+ */
 bool Server::start(int port, const std::string& configFile) {
     // Загружаем базу
     if (!Database::load(configFile)) {
@@ -89,6 +117,19 @@ bool Server::start(int port, const std::string& configFile) {
     return true;
 }
 
+/**
+ * @brief Обрабатывает отдельное клиентское подключение
+ * 
+ * @param clientSocket Дескриптор сокета клиента
+ * 
+ * @details Последовательность обработки:
+ * 1. Аутентификация клиента через Auth::authenticate()
+ * 2. Если аутентификация успешна - обработка векторных данных
+ * 3. Закрытие соединения после завершения обработки
+ * 
+ * @see Auth::authenticate
+ * @see Processor::processVectors
+ */
 void Server::handleClient(int clientSocket) {
     // Аутентификация
     if (!Auth::authenticate(clientSocket)) {

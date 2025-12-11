@@ -1,11 +1,36 @@
+/**
+ * @file database.cpp
+ * @brief Реализация класса базы данных пользователей
+ * @author Мелькаев Евгений
+ * @date 2025
+ */
+
 #include "database.h"
 #include "sha224.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 
-std::unordered_map<std::string, std::string> Database::users;
+std::unordered_map<std::string, std::string> Database::users; ///< Статическое хранилище
 
+/**
+ * @brief Загружает пользователей из текстового файла
+ * 
+ * @param filename Путь к файлу конфигурации
+ * @return true Файл успешно загружен
+ * @return false Ошибка открытия или чтения файла
+ * 
+ * @details Пример содержимого файла:
+ * @code
+ * user1:password1
+ * user2:password2
+ * # комментарий
+ * user3:password3
+ * @endcode
+ * 
+ * @note Тримит пробелы и табуляции вокруг логина и пароля
+ * @note Очищает предыдущие данные перед загрузкой
+ */
 bool Database::load(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -39,6 +64,14 @@ bool Database::load(const std::string& filename) {
     return true;
 }
 
+/**
+ * @brief Получает пароль пользователя
+ * 
+ * @param login Логин пользователя для поиска
+ * @return std::string Пароль или пустая строка если пользователь не найден
+ * 
+ * @warning Возвращаемая строка может быть пустой если пользователь не существует
+ */
 std::string Database::getPassword(const std::string& login) {
     auto it = users.find(login);
     if (it == users.end()) {
@@ -47,6 +80,22 @@ std::string Database::getPassword(const std::string& login) {
     return it->second;
 }
 
+/**
+ * @brief Проверяет учетные данные пользователя
+ * 
+ * @param login Логин пользователя
+ * @param salt Соль для хэширования (16 hex символов)
+ * @param hash Хэш для проверки (56 hex символов)
+ * @return true Хэш совпадает с ожидаемым
+ * @return false Логин не найден или хэш не совпадает
+ * 
+ * @details Алгоритм проверки:
+ * 1. Получение пароля из базы
+ * 2. Вычисление SHA-224(salt + password)
+ * 3. Сравнение с предоставленным хэшем (регистронезависимо)
+ * 
+ * @see SHA224::hashWithSalt
+ */
 bool Database::checkUser(const std::string& login, 
                         const std::string& salt, 
                         const std::string& hash) {

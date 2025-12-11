@@ -1,8 +1,29 @@
+/**
+ * @file args_parser.cpp
+ * @brief Реализация парсера аргументов командной строки
+ * @author Мелькаев Евгений
+ * @date 2025
+ */
+
 #include "args_parser.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
 
+/**
+ * @brief Разбирает аргументы командной строки
+ * 
+ * @details Проходит по всем аргументам, распознает опции и их значения.
+ * Устанавливает значения по умолчанию если опции не указаны.
+ * 
+ * @param argc Количество аргументов
+ * @param argv Массив аргументов
+ * @return ServerConfig Конфигурация сервера
+ * @throw std::invalid_argument при неизвестной опции или неверном порте
+ * 
+ * @see ServerConfig
+ * @see validatePort
+ */
 ServerConfig ArgsParser::parse(int argc, char* argv[]) {
     ServerConfig config;
     
@@ -40,6 +61,15 @@ ServerConfig ArgsParser::parse(int argc, char* argv[]) {
     return config;
 }
 
+/**
+ * @brief Проверяет корректность номера порта
+ * 
+ * @param port Номер порта для проверки
+ * @return true если порт в допустимом диапазоне
+ * @return false если порт зарезервирован или вне диапазона
+ * 
+ * @note Системные порты (0-1023) требуют прав администратора
+ */
 bool ArgsParser::validatePort(int port) {
     if (port < 0 || port > 65535) {
         return false;
@@ -53,6 +83,12 @@ bool ArgsParser::validatePort(int port) {
     return true;
 }
 
+/**
+ * @brief Выводит справку по использованию программы
+ * 
+ * Форматированный вывод доступных опций и их описания.
+ * Вызывается при указании -h или --help, или при ошибке парсинга.
+ */
 void ArgsParser::printHelp() {
     std::cout << "Usage: server [options]\n"
               << "Options:\n"

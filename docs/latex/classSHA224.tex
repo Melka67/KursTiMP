@@ -1,0 +1,170 @@
+\doxysection{Класс SHA224}
+\hypertarget{classSHA224}{}\label{classSHA224}\index{SHA224@{SHA224}}
+
+
+Класс для вычисления SHA-\/224 хэшей  
+
+
+
+
+{\ttfamily \#include $<$sha224.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classSHA224_a8a5efb7e4c653cea8e1509805f4d086f}{hash}} (const std\+::string \&data)
+\begin{DoxyCompactList}\small\item\em Вычисляет SHA-\/224 хэш от данных \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classSHA224_a2cb6948374f0e598978b5fbe6a3b55be}{hash\+With\+Salt}} (const std\+::string \&salt, const std\+::string \&password)
+\begin{DoxyCompactList}\small\item\em Вычисляет SHA-\/224 от конкатенации соли и пароля \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classSHA224_a8cc06bd30c77448a4362b16385ebedc2}{to\+Hex}} (const unsigned char \texorpdfstring{$\ast$}{*}data, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Конвертирует бинарные данные в hex строку \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classSHA224_ac82769044eb438018e81c0c68261eaf3}{is\+Valid\+Hex}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Проверяет, является ли строка корректной hex строкой \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для вычисления SHA-\/224 хэшей 
+
+Предоставляет статические методы для\+:
+\begin{DoxyItemize}
+\item Вычисления хэшей от произвольных данных
+\item Вычисления хэшей с солью
+\item Преобразования в hex строки
+\item Валидации hex строк
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Заметки}
+Использует Open\+SSL EVP API (рекомендовано для Open\+SSL 3.\+0+) 
+\end{DoxyNote}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classSHA224_a8a5efb7e4c653cea8e1509805f4d086f}\label{classSHA224_a8a5efb7e4c653cea8e1509805f4d086f} 
+\index{SHA224@{SHA224}!hash@{hash}}
+\index{hash@{hash}!SHA224@{SHA224}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily std\+::string SHA224\+::hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Вычисляет SHA-\/224 хэш от данных 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Входные данные для хэширования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex строка хэша (56 символов)
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Возвращает пустую строку при ошибке инициализации контекста
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Входные данные для хэширования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex строка хэша длиной 56 символов 
+
+Пустая строка в случае ошибки создания контекста
+\end{DoxyReturn}
+Использует EVP API из Open\+SSL, что является рекомендуемым способом в Open\+SSL 3.\+0 и выше. Длина выходного хэша -\/ 28 байт (224 бита), что соответствует 56 hex символам.
+
+\begin{DoxyNote}{Заметки}
+Требуется линковка с libcrypto (-\/lcrypto) 
+\end{DoxyNote}
+\Hypertarget{classSHA224_a2cb6948374f0e598978b5fbe6a3b55be}\label{classSHA224_a2cb6948374f0e598978b5fbe6a3b55be} 
+\index{SHA224@{SHA224}!hashWithSalt@{hashWithSalt}}
+\index{hashWithSalt@{hashWithSalt}!SHA224@{SHA224}}
+\doxysubsubsection{\texorpdfstring{hashWithSalt()}{hashWithSalt()}}
+{\footnotesize\ttfamily std\+::string SHA224\+::hash\+With\+Salt (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{salt,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Вычисляет SHA-\/224 от конкатенации соли и пароля 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em salt} & Соль для хэширования \\
+\hline
+{\em password} & Пароль пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex строка хэша (56 символов)
+\end{DoxyReturn}
+Вычисляет SHA-\/224(salt \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} password) Используется для безопасного хранения и проверки паролей
+
+
+\begin{DoxyParams}{Аргументы}
+{\em salt} & Соль для добавления к паролю \\
+\hline
+{\em password} & Пароль пользователя \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex строка хэша
+\end{DoxyReturn}
+Конкатенирует соль и пароль, затем вычисляет хэш. Это защищает от атак с использованием радужных таблиц. \Hypertarget{classSHA224_ac82769044eb438018e81c0c68261eaf3}\label{classSHA224_ac82769044eb438018e81c0c68261eaf3} 
+\index{SHA224@{SHA224}!isValidHex@{isValidHex}}
+\index{isValidHex@{isValidHex}!SHA224@{SHA224}}
+\doxysubsubsection{\texorpdfstring{isValidHex()}{isValidHex()}}
+{\footnotesize\ttfamily bool SHA224\+::is\+Valid\+Hex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Проверяет, является ли строка корректной hex строкой 
+
+Проверяет корректность hex строки
+
+
+\begin{DoxyParams}{Аргументы}
+{\em str} & Строка для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Строка содержит только hex символы (0-\/9, a-\/f, A-\/F) 
+
+false Строка содержит не-\/hex символы
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em str} & Строка для проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Строка содержит только hex символы (0-\/9, a-\/f, A-\/F) 
+
+false Строка пуста или содержит не-\/hex символы
+\end{DoxyReturn}
+Использует std\+::isxdigit для проверки каждого символа. Пустая строка считается некорректной. \Hypertarget{classSHA224_a8cc06bd30c77448a4362b16385ebedc2}\label{classSHA224_a8cc06bd30c77448a4362b16385ebedc2} 
+\index{SHA224@{SHA224}!toHex@{toHex}}
+\index{toHex@{toHex}!SHA224@{SHA224}}
+\doxysubsubsection{\texorpdfstring{toHex()}{toHex()}}
+{\footnotesize\ttfamily std\+::string SHA224\+::to\+Hex (\begin{DoxyParamCaption}\item[{const unsigned char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Конвертирует бинарные данные в hex строку 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Указатель на бинарные данные \\
+\hline
+{\em length} & Длина данных в байтах \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex представление данных
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Каждый байт представляется двумя hex символами 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{sha224_8h}{sha224.\+h}}\item 
+src/\mbox{\hyperlink{sha224_8cpp}{sha224.\+cpp}}\end{DoxyCompactItemize}

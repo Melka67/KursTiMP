@@ -1,0 +1,21 @@
+\doxysection{to\+Hex}
+\hypertarget{toHex-example}{}\label{toHex-example}
+\begin{DoxyParams}{Аргументы}
+{\em data} & Указатель на бинарные данные \\
+\hline
+{\em length} & Длина данных в байтах \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Hex представление (длина = length \texorpdfstring{$\ast$}{*} 2)
+\end{DoxyReturn}
+(\{0x\+AB, 0x\+CD\}, 2) вернет "{}abcd"{}
+
+\begin{DoxyNote}{Заметки}
+Использует std\+::hex и std\+::setfill(\textquotesingle{}0\textquotesingle{}) для гарантии двух символов на каждый байт.
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

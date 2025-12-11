@@ -1,0 +1,73 @@
+2025-12-12 01:27:39 | INFO | Server starting on port 33333
+2025-12-12 01:27:39 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 01:27:39 | INFO | Server started successfully on port 33333
+2025-12-12 01:28:45 | INFO | New connection from 127.0.0.1
+2025-12-12 01:28:45 | INFO | User authenticated: user
+2025-12-12 01:28:45 | INFO | Authentication successful
+2025-12-12 01:28:45 | INFO | Processing 4 vectors
+2025-12-12 01:28:45 | INFO | Vector 1 processed, result: 24.000000
+2025-12-12 01:28:45 | INFO | Vector 2 processed, result: 115200000000000000000.000000
+2025-12-12 01:28:45 | INFO | Vector 3 processed, result: 124800000000000000000.000000
+2025-12-12 01:28:45 | INFO | Vector 4 processed, result: 1229.844000
+2025-12-12 01:28:45 | INFO | All vectors processed successfully
+2025-12-12 01:28:45 | INFO | Vector processing completed successfully
+2025-12-12 01:28:45 | INFO | Connection closed: 127.0.0.1
+2025-12-12 01:28:50 | CRITICAL | Server stopped by signal
+2025-12-12 01:59:22 | INFO | Server starting on port 33333
+2025-12-12 01:59:22 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 01:59:22 | INFO | Server started successfully on port 33333
+2025-12-12 02:00:03 | CRITICAL | Server stopped by signal
+2025-12-12 02:00:10 | INFO | Server starting on port 1024
+2025-12-12 02:00:10 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:00:10 | INFO | Server started successfully on port 1024
+2025-12-12 02:00:27 | CRITICAL | Server stopped by signal
+2025-12-12 02:00:32 | INFO | Server starting on port 65535
+2025-12-12 02:00:32 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:00:32 | INFO | Server started successfully on port 65535
+2025-12-12 02:00:43 | CRITICAL | Server stopped by signal
+2025-12-12 02:02:48 | INFO | Server starting on port 33333
+2025-12-12 02:02:49 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:02:49 | INFO | Server started successfully on port 33333
+2025-12-12 02:03:33 | CRITICAL | Server stopped by signal
+2025-12-12 02:03:43 | INFO | Server starting on port 55555
+2025-12-12 02:03:43 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:03:43 | INFO | Server started successfully on port 55555
+2025-12-12 02:04:12 | CRITICAL | Server stopped by signal
+2025-12-12 02:04:55 | INFO | Server starting on port 12345
+2025-12-12 02:04:55 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:04:55 | INFO | Server started successfully on port 12345
+2025-12-12 02:05:08 | CRITICAL | Server stopped by signal
+2025-12-12 02:05:12 | INFO | Server starting on port 12345
+2025-12-12 02:05:12 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:05:12 | INFO | Server started successfully on port 12345
+2025-12-12 02:05:49 | CRITICAL | Server stopped by signal
+2025-12-12 02:07:27 | INFO | Server starting on port 33333
+2025-12-12 02:07:27 | CRITICAL | Failed to load database: -l
+2025-12-12 02:07:27 | CRITICAL | Failed to start server
+2025-12-12 02:08:16 | INFO | Server starting on port 33333
+2025-12-12 02:08:16 | CRITICAL | Failed to load database: test name.conf
+2025-12-12 02:08:16 | CRITICAL | Failed to start server
+2025-12-12 02:09:47 | INFO | Server starting on port 9999
+2025-12-12 02:09:47 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:09:47 | INFO | Server started successfully on port 9999
+2025-12-12 02:10:17 | CRITICAL | Server stopped by signal
+2025-12-12 02:11:56 | INFO | Server starting on port 12345
+2025-12-12 02:11:56 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:11:56 | INFO | Server started successfully on port 12345
+2025-12-12 02:12:12 | CRITICAL | Server stopped by signal
+2025-12-12 02:12:25 | INFO | Server starting on port 22222
+2025-12-12 02:12:25 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:12:25 | INFO | Server started successfully on port 22222
+2025-12-12 02:12:27 | CRITICAL | Server stopped by signal
+2025-12-12 02:12:40 | INFO | Server starting on port 22222
+2025-12-12 02:12:40 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:12:40 | INFO | Server started successfully on port 22222
+2025-12-12 02:12:57 | CRITICAL | Server stopped by signal
+2025-12-12 02:13:58 | INFO | Server starting on port 12345
+2025-12-12 02:13:58 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:13:58 | INFO | Server started successfully on port 12345
+2025-12-12 02:14:08 | CRITICAL | Server stopped by signal
+2025-12-12 02:16:21 | INFO | Server starting on port 3333
+2025-12-12 02:16:21 | INFO | Database loaded successfully: vcalc.conf
+2025-12-12 02:16:21 | INFO | Server started successfully on port 3333
+2025-12-12 02:19:09 | CRITICAL | Server stopped by signal

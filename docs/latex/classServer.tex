@@ -1,0 +1,100 @@
+\doxysection{Класс Server}
+\hypertarget{classServer}{}\label{classServer}\index{Server@{Server}}
+
+
+Класс сервера для обработки клиентских подключений  
+
+
+
+
+{\ttfamily \#include $<$server.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classServer_a385a8569dde4e6ec3f97701ea67e87ce}{start}} (int port, const std\+::string \&config\+File)
+\begin{DoxyCompactList}\small\item\em Запускает сервер \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс сервера для обработки клиентских подключений 
+
+Отвечает за\+:
+\begin{DoxyItemize}
+\item Создание и настройку сокета
+\item Ожидание входящих подключений
+\item Обработку клиентов в отдельных сессиях
+\item Загрузку базы данных пользователей 
+\end{DoxyItemize}
+
+\doxysubsection{Методы}
+\Hypertarget{classServer_a385a8569dde4e6ec3f97701ea67e87ce}\label{classServer_a385a8569dde4e6ec3f97701ea67e87ce} 
+\index{Server@{Server}!start@{start}}
+\index{start@{start}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Server\+::start (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{const std\+::string \&}]{config\+File }\end{DoxyParamCaption})}
+
+
+
+Запускает сервер 
+
+Запускает сервер и начинает прослушивание порта
+
+
+\begin{DoxyParams}{Аргументы}
+{\em port} & Порт для прослушивания \\
+\hline
+{\em config\+File} & Путь к файлу конфигурации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Сервер успешно запущен 
+
+false Ошибка запуска сервера
+\end{DoxyReturn}
+Последовательность действий\+:
+\begin{DoxyEnumerate}
+\item Загрузка базы данных
+\item Создание сокета
+\item Привязка к порту
+\item Начало прослушивания
+\item Обработка входящих подключений
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em port} & Порт для прослушивания \\
+\hline
+{\em config\+File} & Путь к файлу с базой пользователей \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Сервер успешно запущен 
+
+false Ошибка при запуске сервера
+\end{DoxyReturn}
+Метод выполняет полную инициализацию сервера\+:
+\begin{DoxyEnumerate}
+\item Загружает базу данных пользователей
+\item Создает сокет сервера
+\item Настраивает и привязывает сокет
+\item Начинает прослушивание порта
+\item Входит в бесконечный цикл обработки клиентов
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Использует TCP сокеты с адресом INADDR\+\_\+\+ANY (все интерфейсы) 
+
+Включает опцию SO\+\_\+\+REUSEADDR для быстрого перезапуска
+\end{DoxyNote}
+\begin{DoxySeeAlso}{См. также}
+\doxylink{classDatabase_ab3e4d4a5f3c122898e2828fc23b5fa41}{Database\+::load} 
+
+handle\+Client 
+\end{DoxySeeAlso}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{server_8h}{server.\+h}}\item 
+src/\mbox{\hyperlink{server_8cpp}{server.\+cpp}}\end{DoxyCompactItemize}

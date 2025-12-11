@@ -1,0 +1,90 @@
+\doxysection{Файл src/main.cpp}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Главный файл сервера аутентификации и обработки векторов  
+
+
+{\ttfamily \#include "{}server.\+h"{}}\newline
+{\ttfamily \#include "{}logger.\+h"{}}\newline
+{\ttfamily \#include "{}args\+\_\+parser.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$csignal$>$}\newline
+Граф включаемых заголовочных файлов для main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a8ee3282bc313e547dbbb8d4f4010db61}{signal\+Handler}} (int signum)
+\begin{DoxyCompactList}\small\item\em Обработчик сигналов завершения работы \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Точка входа в программу \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_afd1a82c786509e03b540bae82af2c137}\label{main_8cpp_afd1a82c786509e03b540bae82af2c137} 
+\mbox{\hyperlink{classServer}{Server}} {\bfseries server}
+\begin{DoxyCompactList}\small\item\em Глобальный экземпляр сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Главный файл сервера аутентификации и обработки векторов 
+
+
+
+\doxysubsection{Функции}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Точка входа в программу 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов командной строки \\
+\hline
+{\em argv} & Массив аргументов командной строки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Код завершения программы (0 -\/ успешно, 1 -\/ ошибка)
+\end{DoxyReturn}
+Выполняет\+:
+\begin{DoxyEnumerate}
+\item Парсинг аргументов командной строки
+\item Инициализацию логгера
+\item Установку обработчика сигналов
+\item Запуск сервера
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & При ошибках парсинга аргументов \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{main_8cpp_a8ee3282bc313e547dbbb8d4f4010db61}\label{main_8cpp_a8ee3282bc313e547dbbb8d4f4010db61} 
+\index{main.cpp@{main.cpp}!signalHandler@{signalHandler}}
+\index{signalHandler@{signalHandler}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{signalHandler()}{signalHandler()}}
+{\footnotesize\ttfamily void signal\+Handler (\begin{DoxyParamCaption}\item[{int}]{signum }\end{DoxyParamCaption})}
+
+
+
+Обработчик сигналов завершения работы 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em signum} & Номер сигнала\\
+\hline
+\end{DoxyParams}
+Обрабатывает сигналы SIGINT (Ctrl+C) для корректного завершения сервера. Записывает сообщение в лог и выводит информацию в консоль. 

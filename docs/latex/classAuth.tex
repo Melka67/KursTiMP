@@ -1,0 +1,89 @@
+\doxysection{Класс Auth}
+\hypertarget{classAuth}{}\label{classAuth}\index{Auth@{Auth}}
+
+
+Класс для аутентификации клиентов  
+
+
+
+
+{\ttfamily \#include $<$auth.\+h$>$}
+
+\doxysubsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classAuth_acbabacbf34019f348575e2b8c1d6ff4a}{authenticate}} (int client\+Socket)
+\begin{DoxyCompactList}\small\item\em Выполняет аутентификацию клиента \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для аутентификации клиентов 
+
+Обеспечивает проверку учетных данных клиентов, используя механизм соли и хэширования SHA-\/224.
+
+\begin{DoxyNote}{Заметки}
+Все методы статические -\/ не требует создания экземпляра 
+\end{DoxyNote}
+
+
+\doxysubsection{Методы}
+\Hypertarget{classAuth_acbabacbf34019f348575e2b8c1d6ff4a}\label{classAuth_acbabacbf34019f348575e2b8c1d6ff4a} 
+\index{Auth@{Auth}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!Auth@{Auth}}
+\doxysubsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily bool Auth\+::authenticate (\begin{DoxyParamCaption}\item[{int}]{client\+Socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выполняет аутентификацию клиента 
+
+Выполняет полный процесс аутентификации клиента
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+Socket} & Дескриптор сокета клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Аутентификация успешна 
+
+false Аутентификация не удалась
+\end{DoxyReturn}
+Протокол аутентификации\+:
+\begin{DoxyEnumerate}
+\item Клиент отправляет\+: LOGIN(4) + SALT(16 hex) + HASH(56 hex)
+\item Сервер проверяет формат
+\item Сервер вычисляет и сравнивает хэш
+\item Сервер отправляет OK или ERR
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+Socket} & Дескриптор сокета подключенного клиента \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Клиент успешно аутентифицирован 
+
+false Ошибка аутентификации
+\end{DoxyReturn}
+Процесс аутентификации\+:
+\begin{DoxyEnumerate}
+\item Получение данных от клиента (76 байт)
+\item Разбор на компоненты\+: логин, соль, хэш
+\item Валидация формата
+\item Проверка учетных данных
+\item Отправка результата клиенту
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Заметки}
+Формат сообщения\+: LOGIN(4) + SALT(16 hex) + HASH(56 hex) 
+
+При ошибке отправляет "{}\+ERR"{}, при успехе -\/ "{}\+OK"{} 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{auth_8h}{auth.\+h}}\item 
+src/\mbox{\hyperlink{auth_8cpp}{auth.\+cpp}}\end{DoxyCompactItemize}
